@@ -1,3 +1,4 @@
+@use 'shadow';
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 $break: 1000px;
@@ -5,6 +6,9 @@ $break: 1000px;
 $bg-body: #0c122c;
 $bg-card: #1e2d69;
 $bg-primary: #697ed4;
+
+$text-primary: #dbd9ff;
+$fw-bold: 700;
 
 $rad: 15px;
 
@@ -14,16 +18,23 @@ $rad: 15px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: #dbd9ff;
 }
 
 @media (max-width: #{$break}) {
   :root {
+    --pad: 2.8rem;
+    --pad-b: 3.8rem;
     --gap: 1rem;
+    --fs-sm: 0.9rem;
   }
 }
 @media (min-width: #{$break}) {
   :root {
+    --pad: 3rem;
+    --pad-b: 4rem;
     --gap: 1.5rem;
+    --fs-sm: 1rem;
   }
 }
 
@@ -76,9 +87,10 @@ body {
       .A,
       .B {
         border-radius: $rad;
-        padding: 3rem;
+        padding: var(--pad);
         background: $bg-card;
         margin: 0 auto;
+        box-shadow: shadow.f();
       }
 
       $mobile-w: 340px;
@@ -105,19 +117,14 @@ body {
             width: $x;
             height: $x;
             padding: 0.9rem;
-            img {
-              // height: 20px;
-              width: 100%;
-              // height: 100%;
-            }
             svg path {
               fill: $bg-primary;
-              width: 200px;
             }
           }
         }
       }
       .B {
+        padding-bottom: var(--pad-b);
         height: fit-content;
         grid-area: B;
         @media (max-width: #{$break}) {
@@ -125,6 +132,63 @@ body {
         }
         @media (min-width: #{$break}) {
           width: 500px;
+        }
+
+        .text {
+          font-size: var(--fs-sm);
+          margin-bottom: 1rem;
+
+          span {
+            font-weight: $fw-bold;
+          }
+        }
+
+        .bar-container {
+          position: relative;
+          height: 25px;
+          padding: 4px;
+          background: $bg-body;
+          border-radius: 100vmax;
+
+          &::before,
+          &::after {
+            position: absolute;
+            top: 35px;
+            font-weight: $fw-bold;
+          }
+          &::before {
+            content: '0 GB';
+            left: 0;
+          }
+          &::after {
+            content: '100 GB';
+            right: 0;
+          }
+
+          .bar {
+            height: 100%;
+            width: 80%;
+            border-radius: 100vmax;
+            background: rgb(255, 161, 151);
+            background: linear-gradient(
+              90deg,
+              rgba(255, 161, 151, 1) 0%,
+              rgba(255, 74, 149, 1) 100%
+            );
+
+            position: relative;
+            .circle {
+              position: absolute;
+              top: 50%;
+              right: 3px;
+              transform: translateY(-50%);
+              $x: 13px;
+              height: $x;
+              width: $x;
+              border-radius: 50%;
+              background: #979797;
+            }
+          }
         }
       }
     }

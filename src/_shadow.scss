@@ -1,0 +1,17 @@
+$v-offset: 25px;
+$h-offset: 0;
+$blur: 55px;
+$spread: 0px;
+$shadow-clr: rgba(0, 0, 0, 0.2);
+$shadow-clr-hover: rgba(0, 0, 0, 0.175);
+
+@function f($v-offset: 25px, $blur: 50px) {
+  $shadow: $h-offset $v-offset $blur $spread $shadow-clr;
+  @return $shadow;
+}
+
+@function f-hover($v-offset: 25px, $blur: 50px) {
+  $shadow-hover: $h-offset $v-offset calc(#{$blur} * 1.2) $spread
+    $shadow-clr-hover;
+  @return $shadow-hover;
+}
