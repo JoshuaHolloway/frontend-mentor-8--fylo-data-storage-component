@@ -9,9 +9,9 @@
     ".netlify": true,
     // "build": true,
     "_spec": true,
-    "public": true,
+    // "public": true,
     "jsconfig.json": true,
-    "package-lock.json": true,
-    "package.json": true
+    "package-lock.json": true
+    // "package.json": true
   }
 }

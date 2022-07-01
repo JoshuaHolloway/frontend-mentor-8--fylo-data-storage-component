@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import logo from './img/logo.svg';
-import img1 from './img/icon-document.svg';
-import img2 from './img/icon-folder.svg';
-import img3 from './img/icon-upload.svg';
 
 import './index.scss';
 
@@ -47,7 +44,7 @@ function App() {
       </div>
       <div className='B'>
         <p className='text'>
-          You’ve used <span>815 GB</span> of your storage
+          You've used <span>815 GB</span> of your storage
         </p>
         <div className='bar-container'>
           <div className='bar'>
