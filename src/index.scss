@@ -113,10 +113,10 @@ body {
             display: flex;
             background: $bg-body;
             border-radius: $rad;
-            $x: 50px;
+            $x: 52px;
             width: $x;
             height: $x;
-            padding: 0.9rem;
+            padding: 1rem;
             svg path {
               fill: $bg-primary;
             }
